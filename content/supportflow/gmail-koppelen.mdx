@@ -1,0 +1,48 @@
+---
+title: Gmail koppelen
+description: Verbind je Gmail-inbox met SupportFlow via Google OAuth.
+---
+
+# Gmail koppelen
+
+SupportFlow leest je Gmail-inbox en verstuurt antwoorden namens jou. Om dit mogelijk te maken, geef je SupportFlow eenmalig toegang via Google OAuth.
+
+## Vereisten
+
+- Een Google Workspace- of persoonlijk Gmail-account
+- Beheerdersstatus in je SupportFlow-organisatie
+
+## Verbinding instellen
+
+1. Ga naar **Instellingen** in het linker navigatiemenu
+2. Klik op het tabblad **Gmail**
+3. Klik op **Gmail koppelen**
+4. Je wordt doorgestuurd naar Google — log in met het account dat je wilt koppelen
+5. Geef SupportFlow de gevraagde rechten:
+   - Mails lezen (`gmail.readonly`)
+   - Mails verzenden (`gmail.send`)
+6. Je wordt teruggeleid naar SupportFlow — de verbinding is nu actief
+
+## Welke rechten vraagt SupportFlow?
+
+| Recht | Waarvoor |
+|---|---|
+| `gmail.readonly` | Inbox lezen en tickets ophalen |
+| `gmail.send` | Goedgekeurde antwoorden versturen |
+
+SupportFlow vraagt **geen** toegang tot je contacten, agenda of andere Google-diensten.
+
+## Verbinding verbreken
+
+Je kunt de Gmail-koppeling op elk moment verbreken via **Instellingen → Gmail → Verbinding verbreken**. Na het verbreken worden er geen mails meer opgehaald en kan SupportFlow geen antwoorden meer verzenden.
+
+## Problemen oplossen
+
+**De koppeling mislukt tijdens OAuth**
+Controleer of pop-ups niet geblokkeerd zijn in je browser en probeer het opnieuw in een incognitovenster.
+
+**Mails worden niet geladen na koppeling**
+Het kan tot vijf minuten duren voordat de eerste mails verschijnen. Ververs de pagina na een paar minuten.
+
+**Ik heb de verkeerde inbox gekoppeld**
+Verbreek de verbinding en herhaal het koppelproces met het juiste account.
