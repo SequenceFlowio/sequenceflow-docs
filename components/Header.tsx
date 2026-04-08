@@ -1,8 +1,72 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState, useRef, useEffect } from 'react';
+
+const productConfig: Record<
+  string,
+  {
+    label: string;
+    apps: { name: string; href: string; description: string }[];
+  }
+> = {
+  supportflow: {
+    label: 'SupportFlow',
+    apps: [
+      {
+        name: 'Email Reply',
+        href: 'https://emailreply.sequenceflow.io',
+        description: 'AI-gegenereerde e-mailconcepten',
+      },
+    ],
+  },
+  leadflow: {
+    label: 'LeadFlow',
+    apps: [
+      {
+        name: 'Ads Generator',
+        href: 'https://app.sequenceflow.io/ads',
+        description: 'Genereer merkconforme advertenties',
+      },
+      {
+        name: 'Leads Generator',
+        href: 'https://app.sequenceflow.io/leads',
+        description: 'Vind en benader leads automatisch',
+      },
+      {
+        name: 'Landing Page Generator',
+        href: 'https://app.sequenceflow.io/landingpage',
+        description: 'Bouw converterende landingpagina\'s',
+      },
+    ],
+  },
+  operationsflow: {
+    label: 'OperationsFlow',
+    apps: [],
+  },
+};
 
 export default function Header() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const product = Object.keys(productConfig).find((key) =>
+    pathname.startsWith(`/${key}`)
+  );
+  const config = product ? productConfig[product] : null;
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 flex items-center px-6 border-b"
@@ -66,15 +130,52 @@ export default function Header() {
         >
           Support
         </Link>
-        <a
-          href="https://app.sequenceflow.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-semibold px-4 py-2 rounded-lg transition-opacity hover:opacity-90"
-          style={{ backgroundColor: '#B4F000', color: '#0B1220' }}
-        >
-          Open SupportFlow →
-        </a>
+
+        {config && (
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="text-sm font-semibold px-4 py-2 rounded-lg transition-opacity hover:opacity-90 flex items-center gap-1.5"
+              style={{ backgroundColor: '#B4F000', color: '#0B1220' }}
+            >
+              Go to apps
+              <svg
+                className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {open && (
+              <div
+                className="absolute right-0 top-full mt-2 w-56 rounded-xl border overflow-hidden shadow-xl"
+                style={{
+                  backgroundColor: '#111927',
+                  borderColor: 'rgba(255,255,255,0.08)',
+                }}
+              >
+                <div className="p-1">
+                  {config.apps.map((app) => (
+                    <a
+                      key={app.name}
+                      href={app.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                      className="flex flex-col gap-0.5 px-3 py-2.5 rounded-lg hover:bg-white/5 transition-colors"
+                    >
+                      <span className="text-sm font-medium text-white">{app.name}</span>
+                      <span className="text-xs text-gray-400">{app.description}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </header>
   );

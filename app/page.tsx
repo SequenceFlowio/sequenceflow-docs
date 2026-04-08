@@ -8,58 +8,51 @@ const products = [
     name: 'SupportFlow',
     description:
       'Beantwoord klantmails sneller met AI-gegenereerde concepten die jij goedkeurt.',
-    href: '/supportflow',
-    color: '#B4F000',
+    href: '/supportflow/introductie',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4F000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
       </svg>
     ),
     quickLinks: [
-      { title: 'Introductie', slug: 'introductie' },
-      { title: 'Quickstart', slug: 'quickstart' },
-      { title: 'Gmail koppelen', slug: 'gmail-koppelen' },
-      { title: 'Kennisbank', slug: 'kennisbank' },
+      { title: 'Introductie', href: '/supportflow/introductie' },
+      { title: 'Quickstart', href: '/supportflow/quickstart' },
+      { title: 'Gmail koppelen', href: '/supportflow/gmail-koppelen' },
+      { title: 'Kennisbank', href: '/supportflow/kennisbank' },
     ],
   },
   {
-    key: 'ads-generator',
-    name: 'Ads Generator',
+    key: 'leadflow',
+    name: 'LeadFlow',
     description:
-      'Genereer merkconforme advertenties voor elk platform in een paar seconden.',
-    href: '/ads-generator',
-    color: '#B4F000',
+      'Advertenties, leads en landingpagina\'s — drie AI-tools om meer klanten te winnen.',
+    href: '/leadflow/introductie',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4F000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18M9 21V9" />
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
       </svg>
     ),
     quickLinks: [
-      { title: 'Introductie', slug: 'introductie' },
-      { title: 'Quickstart', slug: 'quickstart' },
-      { title: 'Static ads', slug: 'static-ads' },
-      { title: 'Templates', slug: 'templates' },
+      { title: 'Introductie', href: '/leadflow/introductie' },
+      { title: 'Ads Generator', href: '/leadflow/ads-introductie' },
+      { title: 'Leads Generator', href: '/leadflow/leads-introductie' },
+      { title: 'Landing Page Generator', href: '/leadflow/landingpage-introductie' },
     ],
   },
   {
-    key: 'lead-generator',
-    name: 'Lead Generator',
+    key: 'operationsflow',
+    name: 'OperationsFlow',
     description:
-      'Vind groeiende bedrijven via vacatures en benader ze met gepersonaliseerde cold emails.',
-    href: '/lead-generator',
-    color: '#B4F000',
+      'Automatiseer je operationele processen. Binnenkort beschikbaar.',
+    href: '/operationsflow/introductie',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4F000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <path d="m21 21-4.35-4.35" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
       </svg>
     ),
     quickLinks: [
-      { title: 'Introductie', slug: 'introductie' },
-      { title: 'Quickstart', slug: 'quickstart' },
-      { title: 'Vacatures scrapen', slug: 'vacatures-scrapen' },
-      { title: 'Cold emails', slug: 'cold-emails' },
+      { title: 'Introductie', href: '/operationsflow/introductie' },
     ],
   },
 ];
@@ -128,9 +121,9 @@ export default function HomePage() {
                   </p>
                   <ul className="space-y-0.5">
                     {product.quickLinks.map((link) => (
-                      <li key={link.slug}>
+                      <li key={link.href}>
                         <Link
-                          href={`/${product.key}/${link.slug}`}
+                          href={link.href}
                           className="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm transition-colors hover:text-white"
                           style={{ color: 'rgba(255,255,255,0.55)' }}
                         >

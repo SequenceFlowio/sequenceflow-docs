@@ -54,23 +54,37 @@ export const navigation: Navigation = {
       },
     ],
   },
-  'ads-generator': {
-    name: 'Ads Generator',
+  leadflow: {
+    name: 'LeadFlow',
     groups: [
       {
         label: 'Aan de slag',
         pages: [
           { title: 'Introductie', slug: 'introductie' },
           { title: 'Quickstart', slug: 'quickstart' },
-          { title: 'Eerste ad maken', slug: 'eerste-ad-maken' },
         ],
       },
       {
-        label: 'Ads maken',
+        label: 'Ads Generator',
         pages: [
-          { title: 'Static ads', slug: 'static-ads' },
-          { title: 'Stijlen', slug: 'stijlen' },
-          { title: 'Templates', slug: 'templates' },
+          { title: 'Introductie', slug: 'ads-introductie' },
+          { title: 'Ads maken', slug: 'ads-maken' },
+          { title: 'Stijlen', slug: 'ads-stijlen' },
+          { title: 'Templates', slug: 'ads-templates' },
+        ],
+      },
+      {
+        label: 'Leads Generator',
+        pages: [
+          { title: 'Introductie', slug: 'leads-introductie' },
+          { title: 'Vacatures scrapen', slug: 'leads-vacatures' },
+          { title: 'Cold emails', slug: 'leads-cold-emails' },
+        ],
+      },
+      {
+        label: 'Landing Page Generator',
+        pages: [
+          { title: 'Introductie', slug: 'landingpage-introductie' },
         ],
       },
       {
@@ -79,33 +93,21 @@ export const navigation: Navigation = {
       },
     ],
   },
-  'lead-generator': {
-    name: 'Lead Generator',
+  operationsflow: {
+    name: 'OperationsFlow',
     groups: [
       {
-        label: 'Aan de slag',
+        label: 'Welkom',
         pages: [
           { title: 'Introductie', slug: 'introductie' },
-          { title: 'Quickstart', slug: 'quickstart' },
         ],
-      },
-      {
-        label: 'Leads',
-        pages: [
-          { title: 'Vacatures scrapen', slug: 'vacatures-scrapen' },
-          { title: 'Cold emails', slug: 'cold-emails' },
-        ],
-      },
-      {
-        label: 'Billing',
-        pages: [{ title: 'Plannen', slug: 'plannen' }],
       },
     ],
   },
 };
 
 export const products = [
-  { key: 'supportflow', name: 'SupportFlow', href: '/supportflow' },
-  { key: 'ads-generator', name: 'Ads Generator', href: '/ads-generator' },
-  { key: 'lead-generator', name: 'Lead Generator', href: '/lead-generator' },
+  { key: 'supportflow', name: 'SupportFlow', href: '/supportflow/introductie' },
+  { key: 'leadflow', name: 'LeadFlow', href: '/leadflow/introductie' },
+  { key: 'operationsflow', name: 'OperationsFlow', href: '/operationsflow/introductie' },
 ];
