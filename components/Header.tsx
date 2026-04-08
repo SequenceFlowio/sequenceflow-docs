@@ -26,12 +26,12 @@ const productConfig: Record<
     apps: [
       {
         name: 'Ads Generator',
-        href: 'https://app.sequenceflow.io/ads',
+        href: 'https://ads.sequenceflow.io/',
         description: 'Genereer merkconforme advertenties',
       },
       {
         name: 'Leads Generator',
-        href: 'https://app.sequenceflow.io/leads',
+        href: 'https://outreach.sequenceflow.io/',
         description: 'Vind en benader leads automatisch',
       },
       {
