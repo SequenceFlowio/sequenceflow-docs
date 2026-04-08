@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
+import SearchModal from './SearchModal';
 
 const productConfig: Record<
   string,
@@ -50,6 +51,18 @@ const productConfig: Record<
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchOpen((v) => !v);
+      }
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const product = Object.keys(productConfig).find((key) =>
@@ -89,8 +102,9 @@ export default function Header() {
 
       {/* Search */}
       <div className="flex-1 max-w-md mx-auto">
-        <div
-          className="flex items-center gap-2 px-3 py-2 rounded-lg border cursor-pointer"
+        <button
+          onClick={() => setSearchOpen(true)}
+          className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border cursor-pointer transition-colors hover:border-white/20"
           style={{
             backgroundColor: '#111927',
             borderColor: 'rgba(255,255,255,0.08)',
@@ -109,7 +123,7 @@ export default function Header() {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-          <span className="text-gray-400 text-sm flex-1">Search...</span>
+          <span className="text-gray-400 text-sm flex-1 text-left">Zoeken...</span>
           <span
             className="text-xs px-1.5 py-0.5 rounded border"
             style={{
@@ -119,8 +133,9 @@ export default function Header() {
           >
             ⌘K
           </span>
-        </div>
+        </button>
       </div>
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Right side */}
       <div className="flex items-center gap-4 ml-8 shrink-0">
