@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import SearchModal from './SearchModal';
@@ -90,14 +91,15 @@ export default function Header() {
       }}
     >
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-2 mr-8 shrink-0">
-        <div
-          className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm"
-          style={{ backgroundColor: '#B4F000', color: '#0B1220' }}
-        >
-          SF
-        </div>
-        <span className="font-semibold text-white text-sm">SequenceFlow</span>
+      <Link href="/" className="flex items-center mr-8 shrink-0">
+        <Image
+          src="/logo-wit.png"
+          alt="SequenceFlow"
+          width={140}
+          height={36}
+          className="h-7 w-auto"
+          priority
+        />
       </Link>
 
       {/* Search */}

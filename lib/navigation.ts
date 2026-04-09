@@ -107,7 +107,7 @@ export const navigation: Navigation = {
 };
 
 export const products = [
-  { key: 'supportflow', name: 'SupportFlow', href: '/supportflow/introductie' },
-  { key: 'leadflow', name: 'LeadFlow', href: '/leadflow/introductie' },
-  { key: 'operationsflow', name: 'OperationsFlow', href: '/operationsflow/introductie' },
+  { key: 'supportflow', name: 'SupportFlow', href: '/supportflow' },
+  { key: 'leadflow', name: 'LeadFlow', href: '/leadflow' },
+  { key: 'operationsflow', name: 'OperationsFlow', href: '/operationsflow' },
 ];
