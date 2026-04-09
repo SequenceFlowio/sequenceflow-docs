@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { navigation } from '@/lib/navigation';
+import { navigation, pageHref } from '@/lib/navigation';
 
 interface SidebarProps {
   product: string;
@@ -36,7 +36,7 @@ export default function Sidebar({ product }: SidebarProps) {
             </p>
             <ul className="space-y-0.5">
               {group.pages.map((page) => {
-                const href = `/${product}/${page.slug}`;
+                const href = pageHref(product, page);
                 const isActive = pathname === href;
                 return (
                   <li key={page.slug}>

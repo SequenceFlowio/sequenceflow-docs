@@ -1,4 +1,4 @@
-import { navigation } from '@/lib/navigation';
+import { navigation, pageHref } from '@/lib/navigation';
 import { getMdxFile } from '@/lib/mdx';
 import { NextResponse } from 'next/server';
 
@@ -18,7 +18,7 @@ export async function GET() {
   for (const [productKey, productNav] of Object.entries(navigation)) {
     for (const group of productNav.groups) {
       for (const page of group.pages) {
-        const file = getMdxFile(productKey, page.slug);
+        const file = getMdxFile(productKey, page.slug, page.app);
         pages.push({
           title: page.title,
           description: file?.frontMatter.description ?? '',
@@ -26,7 +26,7 @@ export async function GET() {
           productName: productNav.name,
           group: group.label,
           slug: page.slug,
-          href: `/${productKey}/${page.slug}`,
+          href: pageHref(productKey, page),
         });
       }
     }

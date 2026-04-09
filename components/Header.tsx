@@ -95,9 +95,9 @@ export default function Header() {
         <Image
           src="/logo-wit.png"
           alt="SequenceFlow"
-          width={140}
-          height={36}
-          className="h-7 w-auto"
+          width={210}
+          height={54}
+          className="h-[42px] w-auto"
           priority
         />
       </Link>

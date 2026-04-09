@@ -16,8 +16,10 @@ export interface MdxFile {
   slug: string;
 }
 
-export function getMdxFile(product: string, slug: string): MdxFile | null {
-  const filePath = path.join(contentDir, product, `${slug}.mdx`);
+export function getMdxFile(product: string, slug: string, app?: string): MdxFile | null {
+  const filePath = app
+    ? path.join(contentDir, product, app, `${slug}.mdx`)
+    : path.join(contentDir, product, `${slug}.mdx`);
 
   if (!fs.existsSync(filePath)) {
     return null;
@@ -33,15 +35,29 @@ export function getMdxFile(product: string, slug: string): MdxFile | null {
   };
 }
 
-export function getAllSlugs(product: string): string[] {
+export function getAllSlugs(product: string): { slug: string; app?: string }[] {
   const dir = path.join(contentDir, product);
+  if (!fs.existsSync(dir)) return [];
 
-  if (!fs.existsSync(dir)) {
-    return [];
+  const results: { slug: string; app?: string }[] = [];
+
+  // Top-level .mdx files
+  const topLevel = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
+  for (const f of topLevel) {
+    results.push({ slug: f.replace('.mdx', '') });
   }
 
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith('.mdx'))
-    .map((f) => f.replace('.mdx', ''));
+  // App subfolders
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      const appDir = path.join(dir, entry.name);
+      const appFiles = fs.readdirSync(appDir).filter((f) => f.endsWith('.mdx'));
+      for (const f of appFiles) {
+        results.push({ slug: f.replace('.mdx', ''), app: entry.name });
+      }
+    }
+  }
+
+  return results;
 }
