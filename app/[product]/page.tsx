@@ -24,7 +24,7 @@ const productApps: Record<string, { headline: string; sub: string; apps: AppCard
       {
         name: 'Email Reply',
         description: 'Beantwoord klantmails automatisch met AI-concepten die jij goedkeurt via Gmail.',
-        href: '/supportflow/introductie',
+        href: '/supportflow/emailreply/introductie',
         icon: (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4F000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -41,7 +41,7 @@ const productApps: Record<string, { headline: string; sub: string; apps: AppCard
       {
         name: 'Ads Generator',
         description: 'Maak merkconforme advertenties voor Meta, Google en LinkedIn in seconden.',
-        href: '/leadflow/ads-introductie',
+        href: '/leadflow/ads-generator/introductie',
         icon: (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4F000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -52,7 +52,7 @@ const productApps: Record<string, { headline: string; sub: string; apps: AppCard
       {
         name: 'Leads Generator',
         description: 'Vind groeiende bedrijven via vacaturedata en benader ze met gepersonaliseerde cold emails.',
-        href: '/leadflow/leads-introductie',
+        href: '/leadflow/leads-generator/introductie',
         icon: (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4F000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8" />
@@ -63,7 +63,7 @@ const productApps: Record<string, { headline: string; sub: string; apps: AppCard
       {
         name: 'Landing Page Generator',
         description: 'Bouw converterende landingpagina\'s op basis van je product en doelgroep — zonder code.',
-        href: '/leadflow/landingpage-introductie',
+        href: '/leadflow/landing-page-generator/introductie',
         icon: (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4F000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2" />
