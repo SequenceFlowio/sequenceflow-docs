@@ -22,24 +22,14 @@ export const navigation: Navigation = {
     name: 'SupportFlow',
     groups: [
       {
-        label: 'Welkom',
+        label: 'Email Reply',
         pages: [
           { title: 'Introductie', slug: 'introductie' },
           { title: 'Quickstart', slug: 'quickstart' },
           { title: 'Gmail koppelen', slug: 'gmail-koppelen' },
-        ],
-      },
-      {
-        label: 'Inbox',
-        pages: [
-          { title: 'Overzicht', slug: 'overzicht' },
+          { title: 'Inbox overzicht', slug: 'overzicht' },
           { title: 'Tickets bekijken', slug: 'tickets-bekijken' },
           { title: 'Drafts goedkeuren', slug: 'drafts-goedkeuren' },
-        ],
-      },
-      {
-        label: 'Instellingen',
-        pages: [
           { title: 'Beleid', slug: 'beleid' },
           { title: 'Kennisbank', slug: 'kennisbank' },
           { title: 'Team', slug: 'team' },
