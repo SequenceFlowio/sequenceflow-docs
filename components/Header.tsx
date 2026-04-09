@@ -38,7 +38,7 @@ const productConfig: Record<
       },
       {
         name: 'Landing Page Generator',
-        href: 'https://app.sequenceflow.io/landingpage',
+        href: 'https://sequenceflow.io',
         description: 'Bouw converterende landingpagina\'s',
       },
     ],
