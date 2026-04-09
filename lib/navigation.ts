@@ -22,10 +22,15 @@ export const navigation: Navigation = {
     name: 'SupportFlow',
     groups: [
       {
-        label: 'Email Reply',
+        label: 'Aan de slag',
         pages: [
           { title: 'Introductie', slug: 'introductie' },
           { title: 'Quickstart', slug: 'quickstart' },
+        ],
+      },
+      {
+        label: 'Email Reply',
+        pages: [
           { title: 'Gmail koppelen', slug: 'gmail-koppelen' },
           { title: 'Inbox overzicht', slug: 'overzicht' },
           { title: 'Tickets bekijken', slug: 'tickets-bekijken' },
