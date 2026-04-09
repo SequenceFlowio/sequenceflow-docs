@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { navigation } from '@/lib/navigation';
 import Header from '@/components/Header';
 import ProductNav from '@/components/ProductNav';
-import Sidebar from '@/components/Sidebar';
 
 interface Props {
   params: Promise<{ product: string }>;
@@ -110,10 +109,8 @@ export default async function ProductIndexPage({ params }: Props) {
     <>
       <Header />
       <ProductNav />
-      <div className="flex" style={{ paddingTop: '108px', minHeight: '100vh' }}>
-        <Sidebar product={product} />
-        <main className="flex-1" style={{ marginLeft: '240px' }}>
-          <div className="max-w-4xl mx-auto px-12 py-16">
+      <main style={{ paddingTop: '108px', minHeight: '100vh' }}>
+        <div className="max-w-4xl mx-auto px-12 py-16">
             {/* Hero */}
             <div className="mb-12">
               <h1 className="text-3xl font-bold text-white mb-3 tracking-tight">
@@ -171,9 +168,8 @@ export default async function ProductIndexPage({ params }: Props) {
                 </Link>
               ))}
             </div>
-          </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </>
   );
 }
